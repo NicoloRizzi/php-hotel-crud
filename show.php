@@ -1,8 +1,11 @@
 <?php
 include __DIR__ . '/partials/show/server.php';
 
-//sezione head
+//SEZIONE HEAD
 include __DIR__ . '/partials/templates/head.php';
+
+//SEZIONE HEADER
+include __DIR__ . '/partials/templates/header.php';
 ?>
 
 <main class="container">
