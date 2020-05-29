@@ -6,8 +6,14 @@ include __DIR__ . '/partials/templates/head.php';
 
 // SEZIONE HEADER
 include __DIR__ . '/partials/templates/header.php';
-?>
 
+?>
+<?php
+if(!empty($_GET['del'])) { ?>
+    <div class="alert alert-success">
+        <h4>Stanza cancellata con successo</h4>
+    </div>
+<?php } ?>
 <main class="container">
     <div class="row">
         <div class="col-12">
@@ -38,7 +44,7 @@ include __DIR__ . '/partials/templates/header.php';
                                 </td>
                                 <td class="text-primary">Update</td>
                                 <td class="text-danger">
-                                    <form action="./partials/delete/server/server.php" method="POST">
+                                    <form action="./partials/delete/server.php" method="POST">
                                         <input type="hidden" name="id" value="<?php echo $room['id'];?>">
                                         <input class="btn btn-danger" type="submit" value="Delete">
                                     </form>
