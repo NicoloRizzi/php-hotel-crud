@@ -1,12 +1,13 @@
 <?php
 
+include_once __DIR__ . '/partials/update/server-edit.php';
+
 //SEZIONE HEAD
 include __DIR__ . '/partials/templates/head.php';
 
 //SEZIONE HEADER
 include __DIR__ . '/partials/templates/header.php';
 
-include_once __DIR__ . '/partials/update/server-update.php';
 ?>
 <main class="container">
     <div class="row">
@@ -21,14 +22,14 @@ include_once __DIR__ . '/partials/update/server-update.php';
                 </div>
                 <div class="form-group">
                     <label for="beds">Beds</label>
-                    <input class="form-control" type="number" name="beds" id="beds" value="<?php echo $room['beds']; ?>"">
+                    <input class="form-control" type="number" name="beds" id="beds" value="<?php echo $room['beds']; ?>">
                 </div>
                 <div class=" form-group">
                     <label for="floor">Floor</label>
-                    <input class="form-control" type="number" name="floor" id="floor" value="<?php echo $room['floor']; ?>"">
+                    <input class="form-control" type="number" name="floor" id="floor" value="<?php echo $room['floor']; ?>">
                 </div>
-                <div class=" form-group">
-                    <input type="hidden" name="id" value="">
+                <div class="form-group text-right">
+                    <input type="hidden" name="id" value="<?php echo $room['id']; ?>">
                     <input type="submit" value="Save" class="btn btn-primary">
                 </div>
             </form>

@@ -1,21 +1,37 @@
 <?php
-// CONNECTION DB
 include_once __DIR__ . '/../database.php';
 
-if(!empty($_GET['id'])){
-    $id_room = $_GET['id'];
-    //QUERY
-    $sql = "SELECT * FROM `stanze` WHERE `id` = $id_room";
-    $result = $connect->query($sql);
-    if($result && $result->num_rows > 0) {
-        $room = $result->fetch_assoc();
-    } else {
-        die('ID non esistente');
-    }
 
-} else {
-    die("Impossibile ottenere la stanza da editare");
+//CHECK ID
+if(empty($_POST['id'])){
+    die('ID non esistente');
 }
 
-$connect -> close();
+$id_room = $_POST['id'];
+$room_number = $_POST['room_number'];
+$beds = $_POST['beds'];
+$floor = $_POST['floor'];
+
+//UPDATE VALUE
+
+$sql = "UPDATE `stanze`
+SET `room_number` = $room_number,`beds` = $beds, `floor` = $floor
+WHERE `id` = $id_room";
+
+//PERFORM QUERY
+$result = $connect->query($sql);
+
+//CHECK
+
+if ($result && $connect->affected_rows > 0) {
+    header("Location: $base_path/show.php?id=$id_room");
+} elseif ($result) {
+    die('Nessuna room trovata');
+} else {
+    die('Si è verificato un errore');
+}
+
+
+//CLOSE CONNECTION
+$connect->close();
 ?>
