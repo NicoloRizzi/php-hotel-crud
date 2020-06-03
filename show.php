@@ -28,6 +28,12 @@ include __DIR__ . '/partials/templates/header.php';
                     <li class="list-group-item">
                         FLOOR: <?php echo $room['floor']; ?>
                     </li>
+                    <li class="list-group-item">
+                        CREATED: <?php echo $room['created_at']; ?>
+                    </li>
+                    <li class="list-group-item">
+                        UPDATED: <?php echo $room['updated_at']; ?>
+                    </li>
                 </ul>
             </div>
             <a href="./">&lt; back to archive</a>

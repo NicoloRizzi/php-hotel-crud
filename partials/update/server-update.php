@@ -15,7 +15,7 @@ $floor = $_POST['floor'];
 
 //UPDATE WITH BIND PARAM
 $sql = "UPDATE `stanze`
-SET `room_number` = ?, `beds` = ?, `floor` = ?
+SET `room_number` = ?, `beds` = ?, `floor` = ? , `created_at` = ? `updated_at` = NOW();
 WHERE `id` = ?";
 $stmt = $connect->prepare($sql);
 
@@ -27,7 +27,7 @@ $stmt->execute();
 //CHECK
 
 if ($stmt && $connect->affected_rows > 0) {
-    header("Location: $base_path/show.php?id=$id_room");
+    header("Location: $base_path" . "show.php?id=$id_room");
 } elseif ($stmt) {
     die('Nessuna room trovata');
 } else {
