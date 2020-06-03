@@ -6,7 +6,7 @@ include __DIR__ . '/../database.php';
 $id_room = $_GET['id'];
 
 //QUERY SELECTED ROOM
-$sql = "SELECT * FROM STANZE WHERE `id` = $id_room";
+$sql = "SELECT * FROM `stanze` WHERE `id` = $id_room";
 $result = $connect->query($sql);
 
 //CHECK
