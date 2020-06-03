@@ -33,6 +33,8 @@ include __DIR__ . '/partials/templates/header.php';
                     <input type="submit" value="Save" class="btn btn-primary">
                 </div>
             </form>
+            <a class="btn btn-primary" href="<?php echo $base_path; ?>show.php?id=<?php echo $room['id']; ?>"> Room Details
+            </a>
         </div>
     </div>
 </main>
