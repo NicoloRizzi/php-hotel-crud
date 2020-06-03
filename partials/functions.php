@@ -24,4 +24,25 @@ function getAll ($connect, $table) {
 
     return $records;
 }
+/**
+ * GET SINGLE RECORD BY ID
+ */
+function getById($connect, $table, $id_room){
+    //QUERY SELECTED ROOM
+    $sql = "SELECT * FROM `$table` WHERE `id` = $id_room";
+    $result = $connect->query($sql);
+
+    //CHECK
+
+    if ($connect && $result->num_rows > 0) {
+        $records = $result->fetch_assoc();
+    } elseif ($result) {
+        $records = [];
+    } else {
+        $records = false;
+    }
+    //CLOSE CONNECTION
+    $connect->close();
+    return $records;
+}
 ?>
