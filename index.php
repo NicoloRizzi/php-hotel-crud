@@ -7,6 +7,8 @@ include __DIR__ . '/partials/templates/head.php';
 // SEZIONE HEADER
 include __DIR__ . '/partials/templates/header.php';
 
+
+
 ?>
 <?php
 if (!empty($_GET['del'])) { ?>
