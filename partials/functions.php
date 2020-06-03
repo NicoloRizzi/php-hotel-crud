@@ -45,4 +45,20 @@ function getById($connect, $table, $id_room){
     $connect->close();
     return $records;
 }
+
+/**
+ * DELETE A RECORD BY ID
+ */
+function removeById ($connect, $table , $id_room, $url) {
+    $sql = "DELETE FROM `$table` WHERE `id` = $id_room";
+    $result = $connect->query($sql);
+
+    if ($result && $connect->affected_rows > 0) {
+        header("Location: $url");
+    } elseif ($result) {
+        echo 'Nessuna stanza trovata';
+    } else {
+        echo 'Si è verificato un errore';
+    }
+}
 ?>

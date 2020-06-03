@@ -1,23 +1,20 @@
 <?php
+//SETUP CONNECTION
+include_once __DIR__ . '/../../env.php';
+
+
 //CONNECT TO DB
 include_once __DIR__ . '/../database.php';
 
-include_once __DIR__ . '/../../env.php';
+
+//UTILS
+include_once __DIR__ . '/../functions.php';
 
 if (empty($_POST['id'])) {
     die('Operazione non eseguibile');
 }
 $id_room = $_POST['id'];
+$url = "$base_path?del=room";
+removeById($connect, 'stanze', $id_room, $base_path );
 
-//QUERY
-$sql = "DELETE FROM `stanze` WHERE `id` = $id_room";
-$result = $connect->query($sql);
-
-if($result && $connect->affected_rows > 0) {
-    header("Location: $base_path?del=1");
-}elseif ($result) {
-    echo 'Nessuna stanza trovata';
-} else {
-    echo 'Si è verificato un errore';
-}
 ?>
