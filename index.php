@@ -35,6 +35,7 @@ if (!empty($_GET['del'])) { ?>
                 </thead>
                 <tbody>
                     <?php // loop on DB records
+                    var_dump($rooms);
                     if (!empty($rooms)) {
                         foreach ($rooms as $room) { ?>
                             <tr>
