@@ -1,4 +1,5 @@
 <?php
+//CONNECT TO DB
 include_once __DIR__ . '/../database.php';
 
 
@@ -13,9 +14,9 @@ $beds = $_POST['beds'];
 $floor = $_POST['floor'];
 
 
-//UPDATE WITH BIND PARAM
+ //UPDATE WITH BIND PARAM
 $sql = "UPDATE `stanze`
-SET `room_number` = ?, `beds` = ?, `floor` = ? , `created_at` = ? `updated_at` = NOW();
+SET `room_number` = ?, `beds` = ?, `floor` = ? , `updated_at` = NOW()
 WHERE `id` = ?";
 $stmt = $connect->prepare($sql);
 
@@ -26,7 +27,7 @@ $stmt->execute();
 
 //CHECK
 
-if ($stmt && $connect->affected_rows > 0) {
+if ($stmt && $stmt->affected_rows > 0) {
     header("Location: $base_path" . "show.php?id=$id_room");
 } elseif ($stmt) {
     die('Nessuna room trovata');
